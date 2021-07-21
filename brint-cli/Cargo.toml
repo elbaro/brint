@@ -1,0 +1,27 @@
+[package]
+name = "brint"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = "3.0.0-beta.2"
+jwalk = "0.6.0"
+tokio-uring = "0.1.0"
+rustpython-parser = { git = "https://github.com/RustPython/RustPython.git", rev="048f2a6ec7d2be8b63c81f75b593bf0c7935155e" }
+rustpython-ast = { git = "https://github.com/RustPython/RustPython.git", rev="048f2a6ec7d2be8b63c81f75b593bf0c7935155e" }
+rustpython-compiler = { git = "https://github.com/RustPython/RustPython.git", rev="048f2a6ec7d2be8b63c81f75b593bf0c7935155e" }
+anyhow = "1.0.42"
+crossbeam = "0.8.1"
+tokio = {version="1.9.0", features=["full"] }
+slog-scope = "4.4.0"
+slog-term = "2.8.0"
+rayon = "1.5.1"
+awaitgroup = "0.6.0"
+async-channel = "1.6.1"
+slog = "2.7.0"
+semver = "1.0.3"
+slog-async = "2.6.0"
+dashmap = "4.0.2"
+colored = "2.0.0"
