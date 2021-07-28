@@ -11,6 +11,15 @@ pip install brint
 python -m example.test
 ```
 
+### Install
+```sh
+cd brint-py
+python setup.py install --user
+
+cd ../brint-cli
+cargo install --path .
+```
+
 ### brint-py
 
 `@brint.feature(..)` decorates functions and classes.  
