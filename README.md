@@ -16,26 +16,17 @@ python -m example.test
 `@brint.feature(..)` decorates functions and classes.  
 You can override an old entity with new one, or the new with the old.
 
-
 ```py
 import brint
 
-# functions
-
-def get_dark_default_theme() -> str:  # experimental function
-    return 'dark'
-
-@brint.feature(name='dark default theme', version='1.0.0', new=get_dark_default_theme)
-def get_default_theme() -> str:
-    return 'light'
-
-# classes
-
-class LegacyProcessor(): ...
-
-@brint.feature(name='multi-threaded processor', version='1.0.0', old=LegacyProcessor)
-class Processor(): ...
+@brint.feature(name='feature name', version='3.0.0',
+    old=<old replacement>,            # optional
+    new=<new replacement>,            # optional
+    author='@author',                 # optional
+    description='might increase CPR', # optional
+)
 ```
+
 
 ### brint-cli
 
