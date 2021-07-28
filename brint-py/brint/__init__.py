@@ -1,13 +1,6 @@
-## Objects
-# - make a function/method/class available or not
-# -
-
 import importlib
 import inspect
-import logging
-import pathlib
 import sys
-from importlib.metadata import version
 from pathlib import Path
 from typing import Any, Dict, Optional, Union
 
@@ -57,7 +50,8 @@ def _check_version(
     return current_version.replace(prerelease=None) >= version.replace(prerelease=None)
 
 
-_no_op_decorator = lambda x: x
+def _no_op_decorator(x: Any) -> Any:
+    return x
 
 
 def feature(
@@ -69,6 +63,7 @@ def feature(
     description: Optional[str] = None,
 ):
     version: Version = Version.parse(version)
+    assert version.prerelease is None
 
     frame = inspect.stack()[1]
     mod = inspect.getmodule(frame[0])
@@ -87,14 +82,6 @@ def feature(
         )
 
     current_version: Version = Version.parse(current_version)
-
-    # config: Optional[Dict] = _find_brint_config(path=caller_filepath)
-    # if config is None:
-    #     raise RuntimeException('Brint.toml is not found')
-
-    # version_str: str = config.get('version')
-    # if version_str is None:
-    #     raise RuntimeException('Brint.toml has no version field')
 
     if _check_version(version=version, current_version=current_version):
         if new:

@@ -16,7 +16,7 @@ setup(
         'Topic :: Software Development :: Version Control',
     ],
     install_requires=[
-        'semver',
+        'semver==3.0.0-dev.2',
         'rtoml',
     ],
     keywords=[],

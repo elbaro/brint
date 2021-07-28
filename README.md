@@ -3,7 +3,15 @@
 Brint is a feature gating library without feature flags.  
 Each feature is associated with a version, and automatically enabled depending on the current module version.
 
-## `@brint.feature(..)`
+### Example
+See [example/test.py](https://github.com/elbaro/brint/blob/main/example/test.py).
+
+```sh
+pip install brint
+python -m example.test
+```
+
+### brint-py
 
 `@brint.feature(..)` decorates functions and classes.  
 You can override an old entity with new one, or the new with the old.
@@ -27,9 +35,9 @@ class LegacyProcessor(): ...
 
 @brint.feature(name='multi-threaded processor', version='1.0.0', old=LegacyProcessor)
 class Processor(): ...
-````
+```
 
-## CLI
+### brint-cli
 
 These features can be listed in the command line.
 
@@ -61,7 +69,7 @@ Upcoming
     ..
 ```
 
-## Pre-release and Build metadata
+### Pre-release and Build metadata
 Pre-release is intentionally ignored when checking the version.
 Brint will complain about any pre-release in the condition.
 
@@ -71,7 +79,7 @@ Brint will complain about any pre-release in the condition.
 @brint.feature('1.0.0+20210101')  # same as '1.0.0'. build metadata is ignored
 ```
 
-## `Brint.toml` (TODO)
+### `Brint.toml` (TODO)
 
 Feature flags can be defined in `Brint.toml`.  
 This is useful for (1) sharing feature flags in a cross-language codebase, and (2) managing feature flags in one place.
